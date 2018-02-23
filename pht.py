@@ -10,7 +10,7 @@ if os.stat("hash.json").st_size != 0 :
     data = json.load(file)
    # print(data)
 
-choice = raw_input("What do you want to do? \n a)Add a new IPFS hash\n s)Seach stored hashes\n  >>")
+choice = raw_input("What do you want to do? \n a)Add a new IPFS hash\n s)Seach stored hashes\n d)Delete stored hash - not working\n >>")
 
 if choice == 'a':
     # Add a new hash.

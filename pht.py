@@ -36,8 +36,14 @@ elif choice == 's':
     with open('hash.json', 'r') as file:
         data = json.load(file)
         hashlist = data['hashlist']
-    d = {v['description']: h for h, v in hashlist.items()} # This is a dict to map
+    # build dictionary map and search
+    d = {v['description']: h for h, v in hashlist.items()}
     print d.get(searchTerm, 'Not Found')
-        
 
-    
+elif choice == 'd':
+    # Search the current descriptions and delete entry.
+    searchTerm = raw_input('Enter search term: ')
+    with open('hash.json', 'r') as file:
+        data = json.load(file)
+        hashlist = data['hashlist']
+        

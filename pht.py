@@ -36,50 +36,8 @@ elif choice == 's':
     with open('hash.json', 'r') as file:
         data = json.load(file)
         hashlist = data['hashlist']
-        #print hashlist
-        #print searchTerm
+    d = {v['description']: h for h, v in hashlist.items()} # This is a dict to map
+    print d.get(searchTerm, 'Not Found')
         
-    # Not working yet
-    def search(values, searchFor):
-        for k in values:
-            for v in values[k]:
-                if searchFor in v:
-                    return k
-            return None
 
-#Checking if string 'Mary' exists in dictionary value
-    print search(hashlist, searchTerm) #prints firstName
-
-
-
-
-
-    
-#    def search(hashlist, lookup):
-#        for key, value in hashlist.iteritems():
-#            for v in value:
-#                if lookup in v:
-#                    print key
-#                    
-#    print search(hashlist, 'searchTerm')
-
-
-                
-    #  print key, entry['description'] # works
-      #  print entry['description'] # works
-
-     #   if searchTerm in entry['description'] == True:
-     #       print key
-     #   else:
-     #       print "not found"
-            
-        #if searchTerm in entry(data['description']) == True:
-        #    print key
-
-        
-#    if searchTerm in data['hashlist']:
-#        print ('Found Hash!')
-#        print data['hashlist']
-#    else:
-#        print ('No hash found!')
     

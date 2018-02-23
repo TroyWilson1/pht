@@ -4,7 +4,7 @@ This is a little script to help track all the new items that I add to IPFS. This
 
 Any help in cleaning up code or adding additional features is always a great help.  
 
-##Usage
+## Usage
 
 ```
 What do you want to do?

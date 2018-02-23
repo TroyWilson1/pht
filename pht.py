@@ -82,30 +82,4 @@ elif choice == 's':
 #        print data['hashlist']
 #    else:
 #        print ('No hash found!')
-
-
-    # OLD Search working 
-#    sglobal = 0
-#    for x in data["hashlist"]:
-#        if data["hashlist"][sglobal]["description"] == searchTerm:
-#            hash = data["hashlist"][sglobal]["ipfsHash"]
-#            print "Hash Requested:", hash
-#            break
-#        else:
-#            sglobal += 1
-
-
-# Notes: How JSON is readable            
-   
-   # Show Hashes working !
-#    print data["hashlist"][0]["ipfsHash"]
-#    print data["hashlist"][1]["ipfsHash"]
-#    print data["hashlist"][2]["ipfsHash"]
-#    etc...
-     
-   # Show Descriptions working !
-#    print data["hashlist"][0]["description"]
-#    print data["hashlist"][1]["description"]
-#    print data["hashlist"][2]["description"]
-#    etc...        
     

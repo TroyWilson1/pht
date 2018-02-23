@@ -4,11 +4,7 @@
 import json
 import os
 
-data = []
-if os.stat("hash.json").st_size != 0 :
-    file = open('hash.json', 'r')
-    data = json.load(file)
-   # print(data)
+hashjson_global = "/Users/troywilson/testing/pht/hash.json"
 
 choice = raw_input("What do you want to do? \n a)Add a new IPFS hash\n s)Seach stored hashes\n d)Delete stored hash\n >>")
 
@@ -23,7 +19,7 @@ if choice == 'a':
     if new_hash_val not in data['hashlist']:
     # append JSON file with new entry
         data['hashlist'].update(entry) #must do update since it's a dictionary
-        with open('hash.json', 'w') as file:
+        with open(hashjson_global, 'w') as file:
             json.dump(data, file, sort_keys = True, indent = 4, ensure_ascii = False)
         print('IPFS Hash Added.')
         pass
@@ -33,7 +29,7 @@ if choice == 'a':
 elif choice == 's':
     # Search the current desciptions.
     searchTerm = raw_input('Enter search term: ')
-    with open('hash.json', 'r') as file:
+    with open(hashjson_global, 'r') as file:
         data = json.load(file)
         hashlist = data['hashlist']
     # build dictionary map and search for description value
@@ -44,9 +40,9 @@ elif choice == 's':
 elif choice == 'd':
     # Search the current descriptions and delete entry.
     del_hash = raw_input('Hash to delete: ')
-    with open('hash.json', 'r') as file:
+    with open(hashjson_global, 'r') as file:
         data = json.load(file)
     del data['hashlist'][del_hash]
-    with open('hash.json', 'w') as file:
+    with open('hashjson', 'w') as file:
             json.dump(data, file, sort_keys = True, indent = 4, ensure_ascii = False)
     print ('Hash removed')

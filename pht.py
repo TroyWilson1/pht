@@ -35,16 +35,43 @@ elif choice == 's':
     searchTerm = raw_input('Enter search term: ')
     with open('hash.json', 'r') as file:
         data = json.load(file)
+        hashlist = data['hashlist']
+        #print hashlist
+        #print searchTerm
+        
+    # Not working yet
+    def search(values, searchFor):
+        for k in values:
+            for v in values[k]:
+                if searchFor in v:
+                    return k
+            return None
+
+#Checking if string 'Mary' exists in dictionary value
+    print search(hashlist, searchTerm) #prints firstName
+
+
+
+
+
     
-    # Works
-    for key, entry in data['hashlist'].iteritems():
-      #  print key, entry['description'] # works
+#    def search(hashlist, lookup):
+#        for key, value in hashlist.iteritems():
+#            for v in value:
+#                if lookup in v:
+#                    print key
+#                    
+#    print search(hashlist, 'searchTerm')
+
+
+                
+    #  print key, entry['description'] # works
       #  print entry['description'] # works
 
-        if searchTerm in entry['description'] == True:
-            print key
-        else:
-            print "not found"
+     #   if searchTerm in entry['description'] == True:
+     #       print key
+     #   else:
+     #       print "not found"
             
         #if searchTerm in entry(data['description']) == True:
         #    print key
@@ -82,7 +109,3 @@ elif choice == 's':
 #    print data["hashlist"][2]["description"]
 #    etc...        
     
-
-
-    
-        

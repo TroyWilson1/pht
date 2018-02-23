@@ -10,7 +10,7 @@ if os.stat("hash.json").st_size != 0 :
     data = json.load(file)
    # print(data)
 
-choice = raw_input("What do you want to do? \n a)Add a new IPFS hash\n s)Seach stored hashes\n d)Delete stored hash - not working\n >>")
+choice = raw_input("What do you want to do? \n a)Add a new IPFS hash\n s)Seach stored hashes\n d)Delete stored hash\n >>")
 
 if choice == 'a':
     # Add a new hash.
@@ -36,14 +36,17 @@ elif choice == 's':
     with open('hash.json', 'r') as file:
         data = json.load(file)
         hashlist = data['hashlist']
-    # build dictionary map and search
+    # build dictionary map and search for description value
     d = {v['description']: h for h, v in hashlist.items()}
     print d.get(searchTerm, 'Not Found')
 
+
 elif choice == 'd':
     # Search the current descriptions and delete entry.
-    searchTerm = raw_input('Enter search term: ')
+    del_hash = raw_input('Hash to delete: ')
     with open('hash.json', 'r') as file:
         data = json.load(file)
-        hashlist = data['hashlist']
-        
+    del data['hashlist'][del_hash]
+    with open('hash.json', 'w') as file:
+            json.dump(data, file, sort_keys = True, indent = 4, ensure_ascii = False)
+    print ('Hash removed')

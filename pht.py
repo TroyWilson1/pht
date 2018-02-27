@@ -6,6 +6,12 @@ import os
 
 hashjson_global = "/Users/troywilson/testing/pht/hash.json"
 
+data = []
+if os.stat(hashjson_global).st_size != 0 :
+    file = open(hashjson_global, 'r')
+    data = json.load(file)
+   # print(data)
+
 choice = raw_input("What do you want to do? \n a)Add a new IPFS hash\n s)Seach stored hashes\n d)Delete stored hash\n >>")
 
 if choice == 'a':
